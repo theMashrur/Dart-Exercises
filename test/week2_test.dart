@@ -1,3 +1,5 @@
+library week2_test;
+
 import '../week2/primes.dart';
 import 'package:test/test.dart';
 
