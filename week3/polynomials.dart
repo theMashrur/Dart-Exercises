@@ -1,8 +1,9 @@
-import 'dart:math';
 import 'package:collection/collection.dart';
+import 'dart:math';
 
-main() {
-  print(Polynomial([1, 2, 3]) * Polynomial([1, 2, 3]));
+void main() {
+  var a = Polynomial([1, 2]);
+  print(a * 2.5);
 }
 
 class Polynomial {
@@ -59,6 +60,12 @@ class Polynomial {
         o.forEachIndexed((opower, oco) {
           prod[spower + opower] = (sco * oco) + prod[spower + opower];
         });
+      });
+      return Polynomial(prod);
+    } else if (other is num) {
+      var prod = List<num>.filled(coefficients.length, 0);
+      coefficients.forEachIndexed((index, element) {
+        prod[index] = other * element;
       });
       return Polynomial(prod);
     }
