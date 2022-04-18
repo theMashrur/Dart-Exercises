@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 
 main() {
-  print(Polynomial([1, 2, 3, 4]));
+  print(Polynomial([1, 2, 3]) * Polynomial([1, 2, 3]));
 }
 
 class Polynomial {
@@ -54,7 +54,7 @@ class Polynomial {
     if (other is Polynomial) {
       var t = this.coefficients;
       var o = other.coefficients;
-      var prod = List.filled(t.length + o.length, 0);
+      var prod = List.filled(t.length + o.length - 1, 0);
       t.forEachIndexed((spower, sco) {
         o.forEachIndexed((opower, oco) {
           prod[spower + opower] = (sco * oco) + prod[spower + opower];
