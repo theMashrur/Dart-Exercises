@@ -70,4 +70,20 @@ class Polynomial {
       return Polynomial(prod);
     }
   }
+
+  operator -(other) {
+    return this + (other * (-1));
+  }
+
+  bool operator ==(other) {
+    if (other is Polynomial && other.coefficients is List<num>) {
+      if (IterableEquality().equals(this.coefficients, other.coefficients)) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
 }
