@@ -20,4 +20,10 @@ main() {
     var c = a * b;
     expect(c.toString(), equals('2*x^2 + 3*x^1 + 1'));
   });
+  test('Test subtraction', () {
+    var a = Polynomial([1, 2, 3]);
+    var b = 5;
+    var c = a - 5;
+    expect(c.toString(), equals('3*x^2 + 2*x^1 + -4'));
+  });
 }

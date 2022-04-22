@@ -2,8 +2,8 @@ import 'package:collection/collection.dart';
 import 'dart:math';
 
 void main() {
-  var a = Polynomial([1, 2]);
-  print(a * 2.5);
+  var a = Polynomial([1, 2, 3]);
+  print(a - 5);
 }
 
 class Polynomial {
@@ -45,7 +45,7 @@ class Polynomial {
           this.coefficients.sublist(common) +
           other.coefficients.sublist(common);
       return Polynomial(coefs);
-    } else if (other is double) {
+    } else if (other is num) {
       return Polynomial(
           [(this.coefficients[0] + other)] + this.coefficients.sublist(1));
     }
