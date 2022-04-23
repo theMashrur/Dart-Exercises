@@ -26,4 +26,10 @@ main() {
     var c = a - 5;
     expect(c.toString(), equals('3*x^2 + 2*x^1 + -4'));
   });
+  test('Test equality operator', () {
+    var a = Polynomial([1, 2, 3]);
+    var b = Polynomial([1, 2, 3]);
+    bool c = a == b;
+    expect(c, equals(true));
+  });
 }

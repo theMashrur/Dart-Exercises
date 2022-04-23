@@ -3,7 +3,7 @@ import 'dart:math';
 
 void main() {
   var a = Polynomial([1, 2, 3]);
-  print(a - 5);
+  print(a.dx());
 }
 
 class Polynomial {
@@ -85,5 +85,26 @@ class Polynomial {
     } else {
       return false;
     }
+  }
+
+  Polynomial pow(int exp) {
+    var prod = this;
+    for (var i = 1; i <= exp - 1; i++) {
+      prod *= this;
+    }
+    return prod;
+  }
+
+  Polynomial dx() {
+    if (coefficients.length == 1) {
+      return Polynomial([1]);
+    }
+    var deriv = List<num>.filled(coefficients.length - 1, 0);
+    coefficients.forEachIndexed((index, element) {
+      if (index != 0) {
+        deriv[index - 1] = element * index;
+      }
+    });
+    return Polynomial(deriv);
   }
 }
