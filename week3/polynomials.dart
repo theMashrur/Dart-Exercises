@@ -9,14 +9,13 @@ void main() {
 class Polynomial {
   var coefficients = [];
 
-  Polynomial(coefficients) {
-    this.coefficients = coefficients;
-  }
+  Polynomial(this.coefficients);
 
   int degree() {
-    return this.coefficients.length - 1;
+    return coefficients.length - 1;
   }
 
+  @override
   String toString() {
     var str = '';
     var rcoefs = List.from(coefficients.reversed);
@@ -35,25 +34,24 @@ class Polynomial {
 
   operator +(other) {
     if (other is Polynomial) {
-      var common = min(this.degree(), other.degree()) + 1;
-      var inter = IterableZip([this.coefficients, other.coefficients]);
+      var common = min(degree(), other.degree()) + 1;
+      var inter = IterableZip([coefficients, other.coefficients]);
       var coefs = [];
       for (var item in inter) {
         coefs.add(item[0] + item[1]);
       }
       coefs = coefs +
-          this.coefficients.sublist(common) +
+          coefficients.sublist(common) +
           other.coefficients.sublist(common);
       return Polynomial(coefs);
     } else if (other is num) {
-      return Polynomial(
-          [(this.coefficients[0] + other)] + this.coefficients.sublist(1));
+      return Polynomial([(coefficients[0] + other)] + coefficients.sublist(1));
     }
   }
 
   operator *(other) {
     if (other is Polynomial) {
-      var t = this.coefficients;
+      var t = coefficients;
       var o = other.coefficients;
       var prod = List.filled(t.length + o.length - 1, 0);
       t.forEachIndexed((spower, sco) {
@@ -75,9 +73,10 @@ class Polynomial {
     return this + (other * (-1));
   }
 
+  @override
   bool operator ==(other) {
     if (other is Polynomial && other.coefficients is List<num>) {
-      if (IterableEquality().equals(this.coefficients, other.coefficients)) {
+      if (IterableEquality().equals(coefficients, other.coefficients)) {
         return true;
       } else {
         return false;
