@@ -4,7 +4,6 @@ import 'dart:math';
 void main() {
   var a = Polynomial([1, 2, 3]);
   var b = Polynomial([1, 2, 3]);
-  bool c = a == b;
   print(a == b);
 }
 

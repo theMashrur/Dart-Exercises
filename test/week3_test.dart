@@ -36,4 +36,8 @@ main() {
     var a = Polynomial([1, 1]);
     expect(a.pow(2).toString(), equals('1*x^2 + 2*x^1 + 1'));
   });
+  test('test differentiation', () {
+    var a = Polynomial([1, 2, 3]);
+    expect(a.dx().toString(), equals('6*x^1 + 2'));
+  });
 }
