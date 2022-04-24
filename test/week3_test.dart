@@ -32,4 +32,8 @@ main() {
     bool c = a == b;
     expect(c, equals(true));
   });
+  test('Test power function', () {
+    var a = Polynomial([1, 1]);
+    expect(a.pow(2).toString(), equals('1*x^2 + 2*x^1 + 1'));
+  });
 }

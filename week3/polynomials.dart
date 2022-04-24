@@ -3,7 +3,9 @@ import 'dart:math';
 
 void main() {
   var a = Polynomial([1, 2, 3]);
-  print(a.dx());
+  var b = Polynomial([1, 2, 3]);
+  bool c = a == b;
+  print(a == b);
 }
 
 class Polynomial {
@@ -73,9 +75,8 @@ class Polynomial {
     return this + (other * (-1));
   }
 
-  @override
   bool operator ==(other) {
-    if (other is Polynomial && other.coefficients is List<num>) {
+    if (other is Polynomial) {
       if (IterableEquality().equals(coefficients, other.coefficients)) {
         return true;
       } else {
