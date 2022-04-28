@@ -2,6 +2,7 @@ library week3_test;
 
 import 'package:test/test.dart';
 import '../week3/polynomials.dart';
+import '../week3/circle.dart';
 
 main() {
   test('Test printing', () {
@@ -39,5 +40,15 @@ main() {
   test('test differentiation', () {
     var a = Polynomial([1, 2, 3]);
     expect(a.dx().toString(), equals('6*x^1 + 2'));
+  });
+
+  test('Test circle contains', () {
+    var circ = Circle([1, 2], 5);
+    expect(circ.contains([5, 1]), equals(true));
+  });
+
+  test('Test circle not containing', () {
+    var circ = Circle([1, 2], 5);
+    expect(circ.contains([6, 6]), equals(false));
   });
 }
