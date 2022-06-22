@@ -13,4 +13,7 @@ environment:
 dev_dependencies:
   lints: ^1.0.0
   test: ^1.16.0
+dependencies: 
+  math_expressions: ^2.3.0
+  scidart: ^0.0.2-dev.9
   

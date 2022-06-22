@@ -37,6 +37,10 @@ class RPCalc {
         stack.add(num2);
         stack.add(cos(num1));
         break;
+      case "tan":
+        stack.add(num2);
+        stack.add(tan(num1));
+        break;
       default:
         break;
     }
